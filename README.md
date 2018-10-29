@@ -11,7 +11,7 @@ How to run:
     1. Add the following envionment variables:
         *  USERNAME - your virgin pulse username.
         *  PASSWORD - your virgin pulse password.
-        *  CHROMEDRIVER - path to your chromedriver binary. Can be skipped if it's on the system path.
+        *  CHROMEDRIVERPATH - path to your chromedriver binary. Can be skipped if it's on the system path.
     2. Run the script
     
     
