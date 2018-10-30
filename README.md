@@ -21,6 +21,7 @@ This script will probably fail in it's current state. The cards change often and
 cause this script to fail until they are accounted for.
 
 Cards captured/accounted for:
+
     *  "Got It!"
     *  "True/False"
     *  "Will Do!"
