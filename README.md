@@ -19,3 +19,8 @@ How to run:
 This script will probably fail in it's current state. The cards change often and so far I've only captured the simple 
 "GOT IT!" card and a True/False card. There are pop-ups that occur often that I haven't accounted for which will likely
 cause this script to fail until they are accounted for.
+
+Cards captured/accounted for:
+    *  "Got It!"
+    *  "True/False"
+    *  "Will Do!"
