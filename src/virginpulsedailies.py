@@ -34,8 +34,11 @@ def virginpulsedailies():
     while not driver.find_elements_by_id('basic-header'):
         # sleep until page loads
         time.sleep(1)
-    # an extra 2 seconds of sleep until page is fully loaded
-    time.sleep(2)
+    # an extra 20 seconds of sleep until page is fully loaded and pops up the trophy box
+    count = 0
+    while count < 20 and not driver.find_elements_by_id('trophy-modal-close-btn'):
+        time.sleep(1)
+        count += 1
     trophy_box = driver.find_elements_by_id('trophy-modal-close-btn')
     if trophy_box:
         trophy_box[0].click()
@@ -43,18 +46,24 @@ def virginpulsedailies():
     daily_tips_done = driver.find_elements_by_class_name('daily-tips-all-done')
     cycle = 0
     while cycle < 5 and not daily_tips_done:
-        daily_tip_card = driver.find_elements_by_id('triggerCloseCurtain')
-        if daily_tip_card:
-            if daily_tip_card[0].text == 'GOT IT!' or daily_tip_card[0].text == 'WILL DO!':
-                daily_tip_card[0].click()
-        true_false_card = driver.find_elements_by_class_name('quiz-true-false-buttons')
-        if true_false_card:
-            true_false_card[0].click()
-            time.sleep(5)
-            driver.find_element_by_class_name('got-it-core-button').click()
-        cycle = cycle + 1
-        time.sleep(3)
-        daily_tips_done = driver.find_elements_by_class_name('daily-tips-all-done')
+        try:
+            daily_tip_card = driver.find_elements_by_id('triggerCloseCurtain')
+            if daily_tip_card:
+                if daily_tip_card[0].text == 'GOT IT!' or daily_tip_card[0].text == 'WILL DO!':
+                    daily_tip_card[0].click()
+            true_false_card = driver.find_elements_by_class_name('quiz-true-false-buttons')
+            if true_false_card:
+                true_false_card[0].click()
+                time.sleep(5)
+                driver.find_element_by_class_name('got-it-core-button').click()
+            cycle = cycle + 1
+            time.sleep(3)
+            daily_tips_done = driver.find_elements_by_class_name('daily-tips-all-done')
+        except:
+            trophy_box = driver.find_elements_by_id('trophy-modal-close-btn')
+            if trophy_box:
+                trophy_box[0].click()
+                time.sleep(3)
     hh_button = driver.find_element_by_class_name('hh-wrapper')
     hh_button.click()
     time.sleep(1)
