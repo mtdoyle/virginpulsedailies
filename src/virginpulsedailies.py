@@ -66,11 +66,15 @@ def virginpulsedailies():
                 time.sleep(3)
     hh_button = driver.find_element_by_class_name('hh-wrapper')
     hh_button.click()
-    time.sleep(1)
+    time.sleep(2)
     driver.execute_script('document.querySelector(\'#page-wrapper > div > div > div > basic-home > div > div > div:nth-child(4) > home-healthy-habits > div > div > div:nth-child(1) > home-healthy-habit-tile > div > div.home-healthy-habit-yesno.ng-scope > button.btn-primary-inverse.vp-button-primary-inverse.yesNo-btn.yes-btn.ng-scope\').click()')
+    time.sleep(1)
     driver.execute_script('document.querySelector(\'#page-wrapper > div > div > div > basic-home > div > div > div:nth-child(4) > home-healthy-habits > div > div > div:nth-child(2) > home-healthy-habit-tile > div > div.home-healthy-habit-yesno.ng-scope > button.btn-primary-inverse.vp-button-primary-inverse.yesNo-btn.yes-btn.ng-scope\').click()')
+    time.sleep(1)
     driver.execute_script('document.querySelector(\'#page-wrapper > div > div > div > basic-home > div > div > div:nth-child(4) > home-healthy-habits > div > div > div:nth-child(3) > home-healthy-habit-tile > div > div.home-healthy-habit-yesno.ng-scope > button.btn-primary-inverse.vp-button-primary-inverse.yesNo-btn.yes-btn.ng-scope\').click()')
+    time.sleep(1)
     driver.execute_script('document.querySelector(\'#page-wrapper > div > div > div > basic-home > div > div > div:nth-child(4) > home-healthy-habits > div > div > div:nth-child(4) > home-healthy-habit-tile > div > div.home-healthy-habit-yesno.ng-scope > button.btn-primary-inverse.vp-button-primary-inverse.yesNo-btn.yes-btn.ng-scope\').click()')
+    time.sleep(1)
     driver.quit()
 
 
