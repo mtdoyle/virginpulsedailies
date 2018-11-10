@@ -2,13 +2,17 @@ import os
 import time
 
 from selenium import webdriver
-
+from selenium.webdriver.chrome.options import Options
 
 def virginpulsedailies():
     username = os.getenv("USERNAME")
     password = os.getenv("PASSWORD")
     chromedriver_path = os.getenv("CHROMEDRIVERPATH")
-    driver = webdriver.Chrome(chromedriver_path)
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    driver = webdriver.Chrome(chromedriver_path, chrome_options=chrome_options)
     driver.get('http://member.virginpulse.com/login.aspx')
     while not driver.find_elements_by_id('username'):
         time.sleep(1)
@@ -88,7 +92,7 @@ def virginpulsedailies():
     trophy_box = driver.find_elements_by_id('trophy-modal-close-btn')
     if trophy_box:
         trophy_box[0].click()
-        time.sleep(3)    
+        time.sleep(3)
     driver.execute_script('document.querySelector(\'#page-wrapper > div > div > div > basic-home > div > div > div:nth-child(4) > home-healthy-habits > div > div > div:nth-child(4) > home-healthy-habit-tile > div > div.home-healthy-habit-yesno.ng-scope > button.btn-primary-inverse.vp-button-primary-inverse.yesNo-btn.yes-btn.ng-scope\').click()')
     time.sleep(1)
     driver.quit()
