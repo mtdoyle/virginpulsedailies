@@ -24,9 +24,6 @@ RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-ke
 
 RUN mkdir -p /usr/src/app
 
-RUN adduser virginpulse \
-    && chown -R virginpulse:virginpulse /usr/src/app
-
 WORKDIR /usr/src/app
 RUN git clone https://github.com/mtdoyle/virginpulsedailies.git
 WORKDIR /usr/src/app/virginpulsedailies
@@ -41,6 +38,4 @@ ENV USERNAME=mike.doyle@thomsonreuters.com \
     CHROMEDRIVERPATH=/usr/local/bin/chromedriver
 
 
-USER virginpulse
-
-CMD python3 /usr/src/app/virginpulsedailies/src/virginpulsedailies.py
+CMD cd /usr/src/app/virginpulsedailies; git pull; python3 /usr/src/app/virginpulsedailies/src/virginpulsedailies.py

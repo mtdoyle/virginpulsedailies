@@ -13,6 +13,7 @@ def virginpulsedailies():
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Chrome(chromedriver_path, chrome_options=chrome_options)
+    driver.maximize_window()
     driver.get('http://member.virginpulse.com/login.aspx')
     while not driver.find_elements_by_id('username'):
         time.sleep(1)
@@ -35,7 +36,7 @@ def virginpulsedailies():
         time.sleep(2)
 
     driver.find_element_by_id('kc-login').click()
-    while not driver.find_elements_by_id('basic-header'):
+    while not driver.find_elements_by_id('basic-header') and not driver.find_elements_by_id('trophy-modal-close-btn') and not driver.find_elements_by_class_name('hh-wrapper'):
         # sleep until page loads
         time.sleep(1)
     # an extra 20 seconds of sleep until page is fully loaded and pops up the trophy box
