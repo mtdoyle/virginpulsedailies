@@ -33,9 +33,7 @@ RUN python3 get-pip.py
 
 RUN pip3 install -r requirements.txt
 
-ENV USERNAME=mike.doyle@thomsonreuters.com \
-    PASSWORD=*l1%L2Cyat91O$gZ \
-    CHROMEDRIVERPATH=/usr/local/bin/chromedriver
+ENV CHROMEDRIVERPATH=/usr/local/bin/chromedriver
 
 
 CMD cd /usr/src/app/virginpulsedailies; git pull; python3 /usr/src/app/virginpulsedailies/src/virginpulsedailies.py

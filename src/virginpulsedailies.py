@@ -38,7 +38,7 @@ def virginpulsedailies():
     driver.find_element_by_id('kc-login').click()
     while not driver.find_elements_by_id('basic-header') and not driver.find_elements_by_id('trophy-modal-close-btn') and not driver.find_elements_by_class_name('hh-wrapper'):
         # sleep until page loads
-        time.sleep(1)
+            time.sleep(1)
     # an extra 20 seconds of sleep until page is fully loaded and pops up the trophy box
     count = 0
     while count < 20 and not driver.find_elements_by_id('trophy-modal-close-btn'):
