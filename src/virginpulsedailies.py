@@ -69,8 +69,7 @@ def virginpulsedailies():
             if trophy_box:
                 trophy_box[0].click()
                 time.sleep(3)
-    hh_button = driver.find_element_by_class_name('hh-wrapper')
-    hh_button.click()
+    driver.execute_script('document.getElementsByClassName("hh-wrapper")[0].click()')
     time.sleep(2)
     trophy_box = driver.find_elements_by_id('trophy-modal-close-btn')
     if trophy_box:
